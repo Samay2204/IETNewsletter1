@@ -12,6 +12,17 @@ import https from "https";
 
 import path from "path";
 
+// importing path from url
+import { fileURLToPath } from 'url';
+
+
+// defining __dirname in ES modules................
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//......................................................
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
