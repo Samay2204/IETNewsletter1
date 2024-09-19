@@ -81,12 +81,13 @@ app.post("/",function(req,res){
           var scode=response.statusCode;
           if(scode==200){
             res.sendFile(path.join(__dirname, "public", "success.html"));
-            console.log(scode);
+            res.write(scode);
             
             }
             else{
                 res.sendFile(path.join(__dirname, "public", "failure.html"));
                 console.log(scode);
+                res.write(scode);
                 
             }
      });
@@ -101,6 +102,7 @@ app.post("/",function(req,res){
 
 app.post("/failure.html",function(req,res){
     res.sendFile(path.join(__dirname, "public", "signup.html"));
+   
 })
 
 const port = process.env.PORT || 9001;
