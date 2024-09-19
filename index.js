@@ -56,7 +56,7 @@ app.post("/",function(req,res){
 
     const jsondata=JSON.stringify(data);
 
-    const url=`${process.env.MAILCHIMP_URL}${process.env.LIST_ID}`;
+    const url=new URL(`${process.env.MAILCHIMP_URL}${process.env.LIST_ID}`);
 
     //IMP SYNTAX FOR https.request(url,options,callback function)
     //auth --- authentication=apikey
