@@ -10,11 +10,13 @@ import bodyParser from "body-parser";
 // const https=require("https");
 import https from "https";
 
+import path from "path";
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 app.get("/",function(req,res){
-   res.sendFile("C:/Users/91982/Desktop/IETNewsletter/signup.html");
+   res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
 
 app.post("/",function(req,res){
@@ -62,10 +64,10 @@ app.post("/",function(req,res){
 
           var scode=response.statusCode;
           if(scode==200){
-            res.sendFile("C:/Users/91982/Desktop/IETNewsletter/success.html")
+            res.sendFile(path.join(__dirname, "public", "success.html"));
             }
             else{
-                res.sendFile("C:/Users/91982/Desktop/IETNewsletter/failure.html")
+                res.sendFile(path.join(__dirname, "public", "failure.html"));
             }
      });
      
@@ -78,7 +80,7 @@ app.post("/",function(req,res){
 });
 
 app.post("/failure.html",function(req,res){
-    res.sendFile("C:/Users/91982/Desktop/IETNewsletter/signup.html")
+    res.sendFile(path.join(__dirname, "public", "signup.html"));
 })
 
 
