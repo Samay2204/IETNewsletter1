@@ -62,10 +62,10 @@ app.post("/",function(req,res){
 
           var scode=response.statusCode;
           if(scode==200){
-            res.sendFile(__dirname+"/success.html")
+            res.sendFile("/success.html")
             }
             else{
-                res.sendFile(__dirname+"/failure.html")
+                res.sendFile("/failure.html")
             }
      });
      
@@ -78,7 +78,7 @@ app.post("/",function(req,res){
 });
 
 app.post("/failure.html",function(req,res){
-    res.sendFile(__dirname+"/signup.html")
+    res.sendFile("/signup.html")
 })
 
 
