@@ -1,21 +1,20 @@
+
 import express from "express";
-
-const app = express();
-
-const port = 9001;
-
 // const bodyParser = require("body-parser");
 import bodyParser from "body-parser";
-
 // const https=require("https");
 import https from "https";
-
 import path from "path";
-
 // importing path from url
 import { fileURLToPath } from 'url';
 
+import dotenv from "dotenv";
+dotenv.config();  // it loads environment variables from .env file
 
+const app = express();
+
+
+// in commonJS(require) the __dirname is defined but in ES modules(import) we are defining __dirname manually using fileURL path function.
 // defining __dirname in ES modules................
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,10 +23,11 @@ const __dirname = path.dirname(__filename);
 //......................................................
 
 app.use(bodyParser.urlencoded({extended:true}));
+// To use all the static files in public folder
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//get request to home route sending the local file from public folder
 app.get("/",function(req,res){
    res.sendFile(path.join(__dirname, "public", "signup.html"));
 });
@@ -55,7 +55,8 @@ app.post("/",function(req,res){
     }
 
     const jsondata=JSON.stringify(data);
-    const url="https://us14.api.mailchimp.com/3.0/lists/40ab1e45a4";
+
+    const url=`${process.env.MAILCHIMP_URL}${process.env.LIST_ID}`;
 
     //IMP SYNTAX FOR https.request(url,options,callback function)
     //auth --- authentication=apikey
@@ -63,7 +64,7 @@ app.post("/",function(req,res){
 
     const options={
         method:"POST",
-        auth:"shaurya:233336cb383849d10ca06d9d1b78a379-us14"
+        auth:`shaurya:${process.env.API_KEY}`
     }
 
     //https request
@@ -96,6 +97,7 @@ app.post("/failure.html",function(req,res){
     res.sendFile(path.join(__dirname, "public", "signup.html"));
 })
 
+const port = process.env.PORT || 9001;
 
 app.listen(port,()=>{
   console.log(`Starting server on Port ${port}`);
