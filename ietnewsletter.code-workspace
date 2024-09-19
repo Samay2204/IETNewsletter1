@@ -1,0 +1,43 @@
+{
+	"folders": [
+		{
+			"path": "../HTML files"
+		},
+		{
+			"path": "../programs"
+		},
+		{
+			"path": "../my-express-server"
+		},
+		{
+			"path": "../calculator"
+		},
+		{
+			"path": "../weatherProject"
+		},
+		{
+			"path": "../WeatherOwnProject"
+		},
+		{
+			"path": "../Newsletter-Signup"
+		},
+		{
+			"path": "../Data Structure and Algorithms"
+		},
+		{
+			"path": "../todolist"
+		},
+		{
+			"path": "../To-do-list"
+		},
+		{
+			"path": "../Kuch bhi"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Newsletter-Signup"
+	}
+}
