@@ -81,9 +81,11 @@ app.post("/",function(req,res){
           var scode=response.statusCode;
           if(scode==200){
             res.sendFile(path.join(__dirname, "public", "success.html"));
+            res.send(scode);
             }
             else{
                 res.sendFile(path.join(__dirname, "public", "failure.html"));
+                res.send(scode);
             }
      });
      
