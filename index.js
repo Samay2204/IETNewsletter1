@@ -24,7 +24,9 @@ const __dirname = path.dirname(__filename);
 //......................................................
 
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get("/",function(req,res){
    res.sendFile(path.join(__dirname, "public", "signup.html"));
