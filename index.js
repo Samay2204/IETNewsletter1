@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 app.get("/",function(req,res){
-   res.sendFile("/signup.html");
+   res.sendFile("C:/Users/91982/Desktop/IETNewsletter/signup.html");
 });
 
 app.post("/",function(req,res){
@@ -62,10 +62,10 @@ app.post("/",function(req,res){
 
           var scode=response.statusCode;
           if(scode==200){
-            res.sendFile("/success.html")
+            res.sendFile("C:/Users/91982/Desktop/IETNewsletter/success.html")
             }
             else{
-                res.sendFile("/failure.html")
+                res.sendFile("C:/Users/91982/Desktop/IETNewsletter/failure.html")
             }
      });
      
@@ -78,7 +78,7 @@ app.post("/",function(req,res){
 });
 
 app.post("/failure.html",function(req,res){
-    res.sendFile("/signup.html")
+    res.sendFile("C:/Users/91982/Desktop/IETNewsletter/signup.html")
 })
 
 
