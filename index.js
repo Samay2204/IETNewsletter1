@@ -4,8 +4,11 @@ const app = express();
 
 const port = 9000;
 
-const bodyParser=require("body-parser");
-const https=require("https");
+// const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
+
+// const https=require("https");
+import https from "https";
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
